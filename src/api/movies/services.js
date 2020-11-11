@@ -34,9 +34,11 @@ const buildMovie = (id, body, likes = 0) => ({
   likes: likes
 });
 
-const findMovieById = (id) => movies.findIndex(movie => movie.id == id);
+const findMovieIndexById = (id) => movies.findIndex(movie => movie.id == id);
 
 const getMovies = () => movies;
+
+const getLikeMovies = () => movies.filter(movie => movie.likes == 1);
 
 const checkMovie = (body) => {
   if (movies.find(movie => movie.name == body.name)) {
@@ -57,16 +59,15 @@ const addMovie = (body) => {
 };
 
 const deleteMovie = (id) => {
-  const movieIndex = movies.findIndex(movie => movie.id == id);
+  const movieIndex = findMovieIndexById(id);
   movies.splice(movieIndex, 1);
   saveDB();
   return movies;
 };
 
-const getLikeMovies = () => movies.filter(movie => movie.likes == 1);
 
 const setLike = (id) => {
-  const movieIndex = findMovieById(id);
+  const movieIndex = findMovieIndexById(id);
   movies[movieIndex].likes = 1;
   saveDB();
   return movies[movieIndex];
