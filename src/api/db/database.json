@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "StarWars: Amenaza fantasma", "likes": 0 },
+  { "id": 2, "name": "Harry Potter: La piedra filosofal", "likes": 1 },
+  { "id": 3, "name": "Spiderman: Un nuevo universo", "likes": 1 },
+  { "id": 4, "name": "Batman: El caballero oscuro", "likes": 0 }
+]
