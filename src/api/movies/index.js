@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 const {
   getMovies,
@@ -6,7 +6,7 @@ const {
   getLikeMovies,
   deleteMovie,
   setLike
-} = require("./services");
+} = require('./services');
 
 router.put('/likes/:id', ({params}, res) => {
   res.json(setLike(params.id));
@@ -16,12 +16,12 @@ router.delete('/delete/:id', ({params}, res) => {
   res.json(deleteMovie(params.id));
 });
 
-router.get('/likes', ({params}, res) => {
+router.get('/likes', (req, res) => {
   res.json(getLikeMovies());
 });
 
 router.post('/', ({body}, res) => {
-  res.json(addMovie());
+  res.json(addMovie(body));
 });
 
 router.get('/', (req, res) => {
